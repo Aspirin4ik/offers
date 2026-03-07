@@ -3,20 +3,24 @@ Offers.tree.Categories = function(config) {
 
     Ext.applyIf(config, {
         id: 'offers-tree-categories',
-        url: Offers.config.connectorUrl,
-
-        // ВАЖНО: только baseParams работает в MODx.tree.Tree
-        baseParams: {
-            action: 'mgr/product/getcategories'
-        },
-
-        root_id: 8,
-        root_name: 'Каталог',
+        xtype: 'treepanel',
+        border: false,
+        autoScroll: true,
+        useArrows: true,
         rootVisible: true,
 
-        useArrows: true,
-        autoScroll: true,
-        border: false,
+        root: {
+            id: 8,
+            text: 'Каталог',
+            expanded: true
+        },
+
+        loader: new Ext.tree.TreeLoader({
+            dataUrl: Offers.config.connectorUrl,
+            baseParams: {
+                action: 'mgr/product/getcategories'
+            }
+        }),
 
         listeners: {
             click: function(node) {
@@ -36,5 +40,5 @@ Offers.tree.Categories = function(config) {
     Offers.tree.Categories.superclass.constructor.call(this, config);
 };
 
-Ext.extend(Offers.tree.Categories, MODx.tree.Tree);
+Ext.extend(Offers.tree.Categories, Ext.tree.TreePanel);
 Ext.reg('offers-tree-categories', Offers.tree.Categories);

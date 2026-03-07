@@ -35,15 +35,15 @@ class ProductGetListProcessor extends modObjectGetListProcessor {
         $categoryId = (int)$this->getProperty('category_id');
         if ($categoryId) {
 
-            // Получаем все дочерние ресурсы категории
+            // Получаем все дочерние ресурсы категории (включая подкатегории)
             $children = $this->modx->getChildIds($categoryId, 10);
             $children[] = $categoryId;
 
-            // Фильтруем только товары
+            // Фильтруем только товары (msProduct)
             $c->where([
                 'msProduct.id:IN' => $children,
-                'msProduct.template' => 5,
-                'msProduct.class_key' => 'msProduct'
+                'msProduct.class_key' => 'msProduct',
+                'msProduct.template' => 5
             ]);
         }
 

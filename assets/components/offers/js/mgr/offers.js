@@ -11,6 +11,7 @@ Offers.grid = {};
 Offers.window = {};
 Offers.panel = {};
 Offers.page = {};
+Offers.tree = {};
 
 // Конфиг
 Offers.config = {

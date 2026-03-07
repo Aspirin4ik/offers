@@ -21,15 +21,21 @@ class OffersHomeManagerController extends modExtraManagerController {
 
         $this->addJavascript($assetsUrl . 'js/mgr/offers.js');
         $this->addJavascript($assetsUrl . 'js/mgr/offers.utils.js');
-        $this->addJavascript($assetsUrl . 'js/mgr/widgets/offers.windows.js');
+
+        /* СНАЧАЛА — ВСЁ, ЧТО РЕГИСТРИРУЕТ xtype */
         $this->addJavascript($assetsUrl . 'js/mgr/widgets/categories.tree.js');
-        $this->addJavascript($assetsUrl . 'js/mgr/widgets/offeritems.temp.grid.js');
-        $this->addJavascript($assetsUrl . 'js/mgr/widgets/productselector.window.js');
         $this->addJavascript($assetsUrl . 'js/mgr/widgets/products.grid.js');
+
+        /* ПОТОМ — ОКНА, КОТОРЫЕ ИСПОЛЬЗУЮТ ЭТИ xtype */
+        $this->addJavascript($assetsUrl . 'js/mgr/widgets/productselector.window.js');
+        $this->addJavascript($assetsUrl . 'js/mgr/widgets/offers.windows.js');
+        $this->addJavascript($assetsUrl . 'js/mgr/widgets/offeritems.temp.grid.js');
         $this->addJavascript($assetsUrl . 'js/mgr/widgets/offers.grid.js');
         $this->addJavascript($assetsUrl . 'js/mgr/widgets/offeritems.grid.js');
         $this->addJavascript($assetsUrl . 'js/mgr/widgets/offeritems.windows.js');
+
         $this->addCss($assetsUrl . 'css/mgr/offers.css');
+
 
 
         $this->addHtml('<script>

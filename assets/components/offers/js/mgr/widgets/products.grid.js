@@ -8,6 +8,9 @@ Offers.grid.Products = function(config) {
             action: 'mgr/product/getlist',
             category_id: config.category_id // отправляем в процессор
         },
+
+        autoLoad: false,
+        
         fields: ['id', 'name_prod', 'price', 'image', 'thumb'],
         paging: true,
         remoteSort: true,

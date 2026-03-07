@@ -6,15 +6,17 @@ Offers.window.ProductSelector = function(config) {
         width: 780,
         height: 500,
         layout: 'fit',
+        modal: true,
 
         items: [{
             xtype: 'panel',
             layout: 'border',
+            border: false,
 
             items: [{
                 region: 'west',
-                width: 250,
                 xtype: 'offers-tree-categories',
+                width: 250,
                 split: true,
                 collapsible: false
             },{
@@ -29,6 +31,4 @@ Offers.window.ProductSelector = function(config) {
 };
 
 Ext.extend(Offers.window.ProductSelector, MODx.Window);
-
-/* ВАЖНО: xtype ВСЕГДА в нижнем регистре */
 Ext.reg('offers-window-productselector', Offers.window.ProductSelector);

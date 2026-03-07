@@ -47,8 +47,8 @@ Ext.extend(Offers.grid.OfferItemsTemp, MODx.grid.LocalGrid, {
 
     addFromCatalog: function() {
         var win = MODx.load({
-            xtype: 'offers-window-product-selector',
-            category_id: 8, // фильтруем по нужной категории
+            xtype: 'offers-window-productselector', // ← ИСПРАВЛЕНО
+            category_id: 8,
             onSelect: function(product) {
                 this.addTempItem(product);
             },

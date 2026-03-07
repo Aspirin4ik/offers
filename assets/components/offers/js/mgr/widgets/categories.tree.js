@@ -3,7 +3,6 @@ Offers.tree.Categories = function(config) {
 
     Ext.applyIf(config, {
         id: 'offers-tree-categories',
-        xtype: 'treepanel',
         border: false,
         autoScroll: true,
         useArrows: true,

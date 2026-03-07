@@ -1,4 +1,4 @@
-offers.window.ProductSelector = function(config) {
+Offers.window.ProductSelector = function(config) {
     config = config || {};
 
     Ext.applyIf(config, {
@@ -25,8 +25,8 @@ offers.window.ProductSelector = function(config) {
         }]
     });
 
-    offers.window.ProductSelector.superclass.constructor.call(this, config);
+    Offers.window.ProductSelector.superclass.constructor.call(this, config);
 };
 
-Ext.extend(offers.window.ProductSelector, MODx.Window);
-Ext.reg('offers-window-productselector', offers.window.ProductSelector);
+Ext.extend(Offers.window.ProductSelector, MODx.Window);
+Ext.reg('offers-window-productselector', Offers.window.ProductSelector);

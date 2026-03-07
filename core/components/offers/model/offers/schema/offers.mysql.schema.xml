@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="offers" baseClass="xPDOObject" platform="mysql">
+
+    <!-- Таблица offers -->
+    <object class="Offer" table="offers" extends="xPDOSimpleObject" engine="InnoDB">
+
+        <field key="title" dbtype="varchar" precision="255" phptype="string" null="false" />
+        <field key="description" dbtype="text" phptype="string" null="true" />
+        <field key="created_at" dbtype="datetime" phptype="datetime" null="false" />
+
+        <composite alias="Items" class="OfferItem" local="id" foreign="offer_id" cardinality="many" owner="local" />
+    </object>
+
+    <!-- Таблица offer_items -->
+    <object class="OfferItem" table="offer_items" extends="xPDOSimpleObject" engine="InnoDB">
+
+        <field key="offer_id" dbtype="int" precision="10" phptype="integer" null="false" />
+        <field key="name" dbtype="varchar" precision="255" phptype="string" null="false" />
+        <field key="price" dbtype="decimal" precision="10,2" phptype="float" null="false" />
+        <field key="quantity" dbtype="int" precision="10" phptype="integer" null="false" />
+
+        <aggregate alias="Offer" class="Offer" local="offer_id" foreign="id" cardinality="one" owner="foreign" />
+    </object>
+
+</model>

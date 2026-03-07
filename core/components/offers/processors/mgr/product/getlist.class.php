@@ -7,6 +7,19 @@ class ProductGetListProcessor extends modObjectGetListProcessor {
 
     public function prepareQueryBeforeCount(xPDOQuery $c) {
 
+        /* === Получаем категорию === */
+        $categoryId = (int)$this->getProperty('category_id');
+
+        /* === Если категория не выбрана — возвращаем пустой список === */
+        if (!$categoryId) {
+            $c->where(['msProduct.id' => 0]);
+            return $c;
+        }
+
+        /* === Получаем все дочерние категории === */
+        $children = $this->modx->getChildIds($categoryId, 10);
+        $children[] = $categoryId;
+
         /* === JOIN TV: цена === */
         $c->leftJoin('modTemplateVarResource', 'PriceTV', "
             PriceTV.contentid = msProduct.id 
@@ -32,20 +45,11 @@ class ProductGetListProcessor extends modObjectGetListProcessor {
         ]);
 
         /* === Фильтр по категории === */
-        $categoryId = (int)$this->getProperty('category_id');
-        if ($categoryId) {
-
-            // Получаем все дочерние ресурсы категории (включая подкатегории)
-            $children = $this->modx->getChildIds($categoryId, 10);
-            $children[] = $categoryId;
-
-            // Фильтруем только товары (msProduct)
-            $c->where([
-                'msProduct.id:IN' => $children,
-                'msProduct.class_key' => 'msProduct',
-                'msProduct.template' => 5
-            ]);
-        }
+        $c->where([
+            'msProduct.id:IN' => $children,
+            'msProduct.class_key' => 'msProduct',
+            'msProduct.template' => 5
+        ]);
 
         /* === Поиск === */
         $query = trim($this->getProperty('query'));

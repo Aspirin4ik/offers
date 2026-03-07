@@ -1,29 +1,32 @@
-Offers.window.ProductSelector = function(config) {
+offers.window.ProductSelector = function(config) {
     config = config || {};
 
     Ext.applyIf(config, {
         title: 'Выбор товара',
-        width: 700,
+        width: 780,
         height: 500,
         layout: 'fit',
+
         items: [{
+            xtype: 'panel',
             layout: 'border',
+
             items: [{
                 region: 'west',
                 width: 250,
                 xtype: 'offers-tree-categories',
-                split: true
+                split: true,
+                collapsible: false
             },{
                 region: 'center',
                 xtype: 'offers-grid-products',
                 id: 'offers-grid-products'
+            }]
         }]
-    }]
-
     });
 
-    Offers.window.ProductSelector.superclass.constructor.call(this, config);
+    offers.window.ProductSelector.superclass.constructor.call(this, config);
 };
 
-Ext.extend(Offers.window.ProductSelector, MODx.Window);
-Ext.reg('offers-window-product-selector', Offers.window.ProductSelector);
+Ext.extend(offers.window.ProductSelector, MODx.Window);
+Ext.reg('offers-window-productselector', offers.window.ProductSelector);

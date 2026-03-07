@@ -29,4 +29,6 @@ Offers.window.ProductSelector = function(config) {
 };
 
 Ext.extend(Offers.window.ProductSelector, MODx.Window);
+
+/* ВАЖНО: xtype ВСЕГДА в нижнем регистре */
 Ext.reg('offers-window-productselector', Offers.window.ProductSelector);

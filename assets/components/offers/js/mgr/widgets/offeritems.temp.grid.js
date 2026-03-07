@@ -1,7 +1,7 @@
 Offers.grid.OfferItemsTemp = function(config) {
     config = config || {};
 
-    this.tempItems = []; // временное хранилище
+    this.tempItems = [];
 
     Ext.applyIf(config, {
         id: 'offers-grid-offer-items-temp',
@@ -47,7 +47,7 @@ Ext.extend(Offers.grid.OfferItemsTemp, MODx.grid.LocalGrid, {
 
     addFromCatalog: function() {
         var win = MODx.load({
-            xtype: 'offers-window-productselector', // ← ИСПРАВЛЕНО
+            xtype: 'offers-window-productselector',
             category_id: 8,
             onSelect: function(product) {
                 this.addTempItem(product);

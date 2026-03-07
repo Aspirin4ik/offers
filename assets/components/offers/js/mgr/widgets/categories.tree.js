@@ -2,7 +2,6 @@ Offers.tree.Categories = function(config) {
     config = config || {};
 
     Ext.applyIf(config, {
-        xtype: 'treepanel',
         id: 'offers-tree-categories',
         url: Offers.config.connectorUrl,
 

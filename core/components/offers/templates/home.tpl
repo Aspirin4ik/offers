@@ -1,0 +1,1 @@
+<div id="offers-panel-home-div"></div>
